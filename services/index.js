@@ -24,20 +24,27 @@ const debug = require('debug')('Routes');
 export function sendData({data, req, res, next}) {
   debug('Sending data:');
   const {success, error} = data;
-  if (req.xhr) {
+  if (req.xhr || req.url.slice(0, 5) === '/api/') {
     debug('Via XHR');
     if (error || !success) {
       debug('Error sending data:', error);
       res.status(400).json(data);
     } else {
+      res.setHeader('Vary', 'Accept');
+      res.setHeader('Cache-Control', 'public, max-age=3600')
       res.status(200).json(data);
     }
-
   } else {
     // TODO handle bad requests on the pass-a-long
-    debug('Passing data along to server render.');
-    req.preRender = data;
-    next();
+    if (error || !success) {
+      debug('Error sending data:', error);
+      res.redirect(302, '/notfound');
+      return
+    } else {
+      debug('Passing data along to server render.');
+      req.preRender = data;
+      next();
+    }
   }
 }
 

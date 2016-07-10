@@ -2,6 +2,9 @@ import React from 'react';
 import {Route, DefaultRoute, NotFoundRoute, Redirect} from 'react-router';
 import Application from './Application';
 import About from './About';
+import Rule from './Rule';
+import Timeline from './Timeline';
+import Forum from './Forum';
 import Home from './Home';
 import WildCard from './WildCard';
 import Dashboard from './Dashboard';
@@ -20,6 +23,9 @@ export default (
   <Route name="app" path="/" handler={Application}>
     <Route name="home" path="/" handler={Home}/>
     <Route name="about" handler={About}/>
+    <Route name="rule" handler={Rule}/>
+    <Route name="timeline" handler={Timeline}/>
+    <Route name="forum" handler={Forum}/>
     <Route name="page" path="/page/:id" handler={Page}/>
     <Route name="dashboard" handler={Dashboard}/>
     <Route name="signin" handler={SignIn}/>

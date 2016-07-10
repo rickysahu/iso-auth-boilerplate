@@ -71,36 +71,68 @@ export default class Nav extends Component {
       </li>
     );
 
+    // {this.props.loggedIn && loggedInLinks}
+    // {this.props.userLevel > 1 && adminLink}
     return (
-      <div className="main-nav">
-        <ul className={classes}>
-          <li>
-            <Link
-              onMouseOver={this.mouseOverLink}
-              onMouseOut={this.mouseOut}
-              to='/'>Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              onMouseOver={this.mouseOverLink}
-              onMouseOut={this.mouseOut}
-              to='/about'>About
-            </Link>
-          </li>
-          {!this.props.loggedIn &&
+      <div>
+        <div className="main-nav">
+          <ul className={classes}>
+            <li style={{width:"100%"}}>
+              <Link
+                style={{"font-size":"3rem"}}
+                onMouseOver={this.mouseOverLink}
+                onMouseOut={this.mouseOut}
+                to='/'>MIPS Med
+              </Link>
+            </li>
+            <li style={{width:"100%", 'vertical-align':'middle'}}>
+              <input
+                placeholder='search' />
+            </li>
+          </ul>
+        </div>
+        <div className="main-nav">
+          <ul className={classes}>
             <li>
               <Link
                 onMouseOver={this.mouseOverLink}
                 onMouseOut={this.mouseOut}
-                to='signin'>SignIn
+                to='/rule'>Rule
               </Link>
             </li>
-          }
-          {this.props.loggedIn && loggedInLinks}
-          {this.props.userLevel > 1 && adminLink}
+            <li>
+              <Link
+                onMouseOver={this.mouseOverLink}
+                onMouseOut={this.mouseOut}
+                to='/timeline'>Timeline
+              </Link>
+            </li>
+            <li>
+              <Link
+                onMouseOver={this.mouseOverLink}
+                onMouseOut={this.mouseOut}
+                to='/forum'>Forum
+              </Link>
+            </li>
+            <li>
+              <Link
+                onMouseOver={this.mouseOverLink}
+                onMouseOut={this.mouseOut}
+                to='/tools'>Tools
+              </Link>
+            </li>
+            {!this.props.loggedIn &&
+              <li>
+                <Link
+                  onMouseOver={this.mouseOverLink}
+                  onMouseOut={this.mouseOut}
+                  to='signin'>SignIn
+                </Link>
+              </li>
+            }
 
-        </ul>
+          </ul>
+        </div>
       </div>
     );
   }

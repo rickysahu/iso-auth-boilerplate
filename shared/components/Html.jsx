@@ -34,11 +34,11 @@ export default class Html extends Component {
           <meta
             name="viewport"
             content="width=device-width, user-scalable=no" />
-          {/* <link
-            href="http://fonts.googleapis.com/css?family=Raleway"
+          <link
+            href="http://fonts.googleapis.com/css?family=Montserrat"
             rel="stylesheet"
             type="text/css"
-          /> */}
+          />
           <link
             rel="stylesheet"
             href={`${fullPublicPath}/${CSS_PATH}`}

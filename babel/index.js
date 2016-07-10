@@ -81,7 +81,7 @@ if (process.env.ALWAYS_ADMIN) {
     if (initialLogin) {
       return next();
     }
-    req.body = {email: 'admin', password: 'admin'};
+    req.body = {email: 'admin', password: 'Skunker!1'};
     passport.authenticate('local-login', (err, user) => {
       req.logIn(user, function(loginErr) {
         if (loginErr) {
